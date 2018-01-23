@@ -1,0 +1,3 @@
+[submodule "bamcmp/bamcmp"]
+	path = bamcmp/bamcmp
+	url = https://github.com/CRUKMI-ComputationalBiology/bamcmp.git
