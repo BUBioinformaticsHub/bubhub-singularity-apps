@@ -1,0 +1,22 @@
+Bootstrap: localimage
+From: ../base.simg
+
+%help
+echo "Usage: singularity run "
+
+
+%runscript
+/STAR-Fusion-v1.2.0/STAR-Fusion $@
+
+
+%post
+# squelch perl complaining about locale settings it doesn't understand
+LANG=C
+LANGUAGE=$LANG
+LC_ALL=$LANG
+export LANG LANGUAGE LC_ALL
+
+cpan install Set::IntervalTree
+
+wget https://github.com/STAR-Fusion/STAR-Fusion/releases/download/STAR-Fusion-v1.2.0/STAR-Fusion-v1.2.0.FULL.tar.gz -O STAR-Fusion-v1.2.0.FULL.tar.gz
+tar zxf STAR-Fusion-v1.2.0.FULL.tar.gz
