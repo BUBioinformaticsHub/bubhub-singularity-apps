@@ -1,5 +1,5 @@
 Bootstrap: localimage
-From: ../base.simg
+From: base.simg
 
 %help
 echo "Usage: singularity run "
@@ -16,7 +16,12 @@ LANGUAGE=$LANG
 LC_ALL=$LANG
 export LANG LANGUAGE LC_ALL
 
-cpan install Set::IntervalTree
+# install STAR
+wget https://github.com/alexdobin/STAR/archive/2.5.4a.tar.gz
+tar zxf 2.5.4a.tar.gz
+cp STAR-2.5.4a/bin/Linux_x86_64_static/STAR /usr/bin
+
+cpan install URI::Escape Set::IntervalTree
 
 wget https://github.com/STAR-Fusion/STAR-Fusion/releases/download/STAR-Fusion-v1.2.0/STAR-Fusion-v1.2.0.FULL.tar.gz -O STAR-Fusion-v1.2.0.FULL.tar.gz
 tar zxf STAR-Fusion-v1.2.0.FULL.tar.gz
