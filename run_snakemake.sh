@@ -1,1 +1,2 @@
-sudo `which snakemake` $@
+sudo `which snakemake` --until simg $@
+snakemake $@
